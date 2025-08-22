@@ -1,6 +1,6 @@
 # 🚗 CarClinic API
 
-CarClinic هو مشروع API مبني باستخدام **.NET 8** و **Clean Architecture** مع **MongoDB**.  
+CarClinic هو مشروع API مبني باستخدام **.NET 9** و **Clean Architecture** مع **MongoDB**.  
 المشروع يوفر نظام لإدارة خدمات مراكز صيانة السيارات (Car Clinic).
 
 ---
