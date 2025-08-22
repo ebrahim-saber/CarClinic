@@ -9,11 +9,14 @@ namespace CarClinic.Controllers
     public class UserController : ControllerBase
     {
         private readonly RegisterUserUseCase _registerUserUseCase;
+        private readonly LoginUserUseCase _loginUserUseCase;
 
-        public UserController(RegisterUserUseCase registerUserUseCase)
+        public UserController(RegisterUserUseCase registerUserUseCase, LoginUserUseCase loginUserUseCase)
         {
             _registerUserUseCase = registerUserUseCase;
+            _loginUserUseCase = loginUserUseCase;
         }
+
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
@@ -28,5 +31,21 @@ namespace CarClinic.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            try
+            {
+                var response = await _loginUserUseCase.ExecuteAsync(request);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized(new { error = ex.Message });
+            }
+        }
+
     }
 }

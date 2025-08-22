@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CarClinic.Application\CarClinic.Application.csproj" />
     <ProjectReference Include="..\CarClinic.Domain\CarClinic.Domain.csproj" />
   </ItemGroup>
 
