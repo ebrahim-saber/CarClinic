@@ -44,10 +44,10 @@ namespace CarClinic.Application.UseCases.User
         {
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, userId),
-                new Claim(JwtRegisteredClaimNames.Email, email),
-                new Claim(ClaimTypes.Role, role),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+        new Claim(ClaimTypes.NameIdentifier, userId),
+        new Claim(JwtRegisteredClaimNames.Email, email),
+        new Claim(ClaimTypes.Role, role),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
@@ -62,6 +62,7 @@ namespace CarClinic.Application.UseCases.User
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
 
         private string HashPassword(string password)
         {
