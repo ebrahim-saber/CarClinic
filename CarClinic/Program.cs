@@ -24,6 +24,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<RegisterUserUseCase>();
 builder.Services.AddScoped<LoginUserUseCase>();
 builder.Services.AddScoped<GetProfileUseCase>();
+builder.Services.AddScoped<GetUserByIdUseCase>();
+builder.Services.AddScoped<GetAllUsersUseCase>();
 
 // JWT Auth
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
